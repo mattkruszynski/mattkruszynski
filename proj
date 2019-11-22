@@ -1,0 +1,46 @@
+def isTrib(number):
+    x = [0, 1, 2, 4]
+
+    while x[0] <= number:
+
+        if number == x[0]:
+            return True
+
+        x.append(x[-1] + x[-2] + x[-3])
+        x.remove(x[0])
+
+    return False
+
+def takeinput():
+    while True:
+        n = input()
+        try:
+            n = int(n)
+            if n < 0:
+                n *= -1
+            return n
+        except:
+            print('BLAD')
+            continue
+
+
+n = takeinput()
+
+y = []
+while n > 0:
+
+    y.append(takeinput())
+
+    n -= 1
+
+#print(y)
+
+for i in y:
+    if isTrib(i)==True:
+        print(i,"\tTAK")
+    elif isTrib(i)==False:
+        print(i,"\tNIE")
+
+
+
+input()
